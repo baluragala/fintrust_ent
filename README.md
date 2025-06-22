@@ -5,4 +5,4 @@ az group create --name fintrust_rg --location "East US"
 az deployment group create \
   --resource-group fintrust_rg \
   --template-file main.bicep \
-  --parameters firewallPrivateIP='10.0.100.4'# fintrust_ent
+  --parameters firewallPrivateIP='10.0.100.4'
