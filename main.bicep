@@ -1,10 +1,10 @@
 param location string = resourceGroup().location
-param vnetName string = 'fintrust-vnet'
+param vnetName string = 'fintrust-vnet1'
 param firewallPrivateIP string
 
 // Deploy ASGs
 module asgs 'modules/asg.bicep' = {
-  name: 'asgDeployment'
+  name: 'asgDeployment1'
   params: {
     location: location
   }
@@ -12,7 +12,7 @@ module asgs 'modules/asg.bicep' = {
 
 // Deploy NSGs with ASG references
 module nsgs 'modules/nsg.bicep' = {
-  name: 'nsgDeployment'
+  name: 'nsgDeployment1'
   params: {
     location: location
     asgWebId: asgs.outputs.asgWebId
@@ -23,7 +23,7 @@ module nsgs 'modules/nsg.bicep' = {
 
 // Deploy UDR for WebSubnet
 module udr 'modules/udr.bicep' = {
-  name: 'udrDeployment'
+  name: 'udrDeployment1'
   params: {
     location: location
     firewallIP: firewallPrivateIP
@@ -32,7 +32,7 @@ module udr 'modules/udr.bicep' = {
 
 // Deploy VNet and Subnets with NSGs and UDR
 module vnet 'modules/vnet.bicep' = {
-  name: 'vnetDeployment'
+  name: 'vnetDeployment1'
   params: {
     location: location
     vnetName: vnetName
@@ -46,7 +46,7 @@ module vnet 'modules/vnet.bicep' = {
 
 // Deploy VMs into subnets
 module vms 'modules/vm.bicep' = {
-  name: 'vmDeployment'
+  name: 'vmDeployment1'
   params: {
     location: location
     vnetName: vnetName

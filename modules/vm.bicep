@@ -4,14 +4,14 @@ param asgWebId string
 param asgAppId string
 param asgDbId string
 
-var subnetWebId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'WebSubnet')
-var subnetAppId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'AppSubnet')
-var subnetDbId  = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'DbSubnet')
+var subnetWebId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'WebSubnet1')
+var subnetAppId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'AppSubnet1')
+var subnetDbId  = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, 'DbSubnet1')
 
 module vmWeb 'vmInstance.bicep' = {
-  name: 'webVM'
+  name: 'webVM1'
   params: {
-    vmName: 'vm-web'
+    vmName: 'vm-web1'
     subnetId: subnetWebId
     asgId: asgWebId
     location: location
@@ -19,9 +19,9 @@ module vmWeb 'vmInstance.bicep' = {
 }
 
 module vmApp 'vmInstance.bicep' = {
-  name: 'appVM'
+  name: 'appVM1'
   params: {
-    vmName: 'vm-app'
+    vmName: 'vm-app1'
     subnetId: subnetAppId
     asgId: asgAppId
     location: location
@@ -29,9 +29,9 @@ module vmApp 'vmInstance.bicep' = {
 }
 
 module vmDb 'vmInstance.bicep' = {
-  name: 'dbVM'
+  name: 'dbVM1'
   params: {
-    vmName: 'vm-db'
+    vmName: 'vm-db1'
     subnetId: subnetDbId
     asgId: asgDbId
     location: location

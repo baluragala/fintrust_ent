@@ -2,7 +2,7 @@ param location string
 param firewallIP string
 
 resource routeTable 'Microsoft.Network/routeTables@2023-04-01' = {
-  name: 'rt-web'
+  name: 'rt-web1'
   location: location
   properties: {
     routes: [

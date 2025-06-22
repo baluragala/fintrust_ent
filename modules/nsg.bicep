@@ -4,7 +4,7 @@ param asgAppId string
 param asgDbId string
 
 resource nsgWeb 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: 'nsg-web'
+  name: 'nsg-web1'
   location: location
   properties: {
     securityRules: [
@@ -39,7 +39,7 @@ resource nsgWeb 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
 }
 
 resource nsgApp 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: 'nsg-app'
+  name: 'nsg-app1'
   location: location
   properties: {
     securityRules: [
@@ -87,7 +87,7 @@ resource nsgApp 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
 }
 
 resource nsgDb 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: 'nsg-db'
+  name: 'nsg-db1'
   location: location
   properties: {
     securityRules: [
